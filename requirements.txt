@@ -1,0 +1,36 @@
+# ============================================================
+# Silent Speech Recognition - pinned environment
+# Verified: macOS Intel, Python 3.10.0, .venv, pip check clean
+# Captured: 2026-11-12
+#
+# Recreate:
+#   python3.10 -m venv .venv
+#   .venv/bin/python -m pip install --upgrade pip
+#   .venv/bin/python -m pip install -r requirements.txt
+#
+# Install ONLY these pins. Do NOT run `pip install --upgrade`.
+# ============================================================
+
+# ---------- Computer vision / face mesh ----------
+opencv-contrib-python==4.11.0.86
+mediapipe==0.10.21
+
+# ---------- Numerical / data ----------
+numpy==1.26.4
+pandas==2.3.3
+scipy==1.15.3
+
+# ---------- Machine learning ----------
+scikit-learn==1.7.2
+joblib==1.6.0
+
+# ---------- Visualization / UI ----------
+matplotlib==3.10.9
+streamlit==1.41.1
+
+# ------------------------------------------------------------
+# CRITICAL CONSTRAINT
+# mediapipe 0.10.21 is NOT compatible with NumPy 2.x.
+# numpy==1.26.4 is load-bearing. An unpinned install today
+# resolves NumPy 2.x and breaks FaceMesh at import time.
+# ------------------------------------------------------------
